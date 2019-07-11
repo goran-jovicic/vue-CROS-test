@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -41,7 +42,7 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         //grab credentials form the request
-        $credentials = $request->only(['email','password']);
+        $credentials = $request->only(['email', 'password']);
 
         try {
             //attempt to verify the credentails and create a token for the user
